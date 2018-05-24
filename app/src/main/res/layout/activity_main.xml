@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,13 +7,50 @@
     android:layout_height="match_parent"
     tools:context="com.heynchy.compressimage.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/tv_mass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:text="图片的质量压缩"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_pix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_mass"
+            android:layout_marginTop="10dp"
+            android:background="#000000"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:text="图片的像素（尺寸）压缩!"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_luban"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_pix"
+            android:layout_marginTop="10dp"
+            android:background="#000000"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:text="Luban算法的压缩"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            />
+    </RelativeLayout>
+</RelativeLayout>

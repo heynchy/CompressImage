@@ -5,6 +5,8 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.heynchy.compress.CompressImage;
 import com.heynchy.compress.compressinterface.CompressLubanListener;
@@ -13,10 +15,33 @@ import com.heynchy.compress.compressinterface.CompressPixListener;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView mMassTv;
+    private TextView mPixTv;
+    private TextView mLubanTv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initView();
+        mMassTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO 跳转至图片的质量压缩界面
+            }
+        });
+        mPixTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO 跳转至图片的像素压缩界面
+            }
+        });
+        mLubanTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO 跳转至图片的Luban算法的压缩界面
+            }
+        });
         final String filePath = Environment.getExternalStorageDirectory() + "/yueyeya/1.jpg";
         final String filePath2 = Environment.getExternalStorageDirectory() + "/yueyeya/2.jpg";
         final String filePath3 = Environment.getExternalStorageDirectory() + "/yueyeya/3.jpg";
@@ -57,5 +82,11 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("heyn", "onCompressPixFailed");
             }
         });
+    }
+
+    private void initView() {
+        mMassTv = (TextView) findViewById(R.id.tv_mass);
+        mLubanTv = (TextView) findViewById(R.id.tv_luban);
+        mPixTv = (TextView) findViewById(R.id.tv_pix);
     }
 }

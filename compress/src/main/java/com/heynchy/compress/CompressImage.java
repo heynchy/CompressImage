@@ -4,8 +4,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
-import com.heynchy.compress.compressUtill.FileSizeUtil;
-import com.heynchy.compress.compressUtill.LubanUtil;
+import com.heynchy.compress.compressUtil.FileSizeUtil;
+import com.heynchy.compress.compressUtil.LubanUtil;
 import com.heynchy.compress.compressinterface.CompressInterface;
 import com.heynchy.compress.compressinterface.CompressLubanListener;
 import com.heynchy.compress.compressinterface.CompressMassListener;

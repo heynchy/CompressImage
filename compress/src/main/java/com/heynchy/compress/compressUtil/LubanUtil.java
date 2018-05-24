@@ -1,4 +1,4 @@
-package com.heynchy.compress.compressUtill;
+package com.heynchy.compress.compressUtil;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

@@ -1,4 +1,4 @@
-package com.heynchy.compress.compressUtill;
+package com.heynchy.compress.compressUtil;
 
 import android.util.Log;
 
