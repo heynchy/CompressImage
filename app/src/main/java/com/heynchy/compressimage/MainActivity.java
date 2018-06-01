@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this, "获取权限成功", Toast.LENGTH_SHORT).show();
             } else {
+                
                 Toast.makeText(this, "获取权限失败", Toast.LENGTH_SHORT).show();
             }
         }
