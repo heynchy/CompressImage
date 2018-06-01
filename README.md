@@ -4,7 +4,7 @@
 ###  Add dependency
 
 ```groovy
-	dependencies {
-	        implementation 'com.github.heynchy:CompressImage:v0.1.1'
-	}
+   dependencies {
+       implementation 'com.github.heynchy:CompressImage:v0.1.1'
+   }
 ```
