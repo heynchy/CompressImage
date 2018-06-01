@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.heynchy.compressimage.MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_weight="1"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_background"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_mass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/iv_image"
+        android:gravity="center_horizontal"
+        android:padding="15dp"
+        android:text="压缩前质量: 0KB"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_click"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#8d8d8d"
+        android:gravity="center"
+        android:text="点击压缩"
+        android:textColor="#ffffff"
+        android:textSize="18sp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_weight="1"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/iv_press_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_background"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_press_mass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/iv_press_image"
+        android:gravity="center_horizontal"
+        android:padding="15dp"
+        android:text="压缩后质量: 0KB"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        />
+</LinearLayout>

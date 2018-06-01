@@ -28,7 +28,7 @@ public interface CompressInterface {
      * @param maxHeight
      * @param listener
      */
-    void imagePixCompress(String imagePath, float maxWidth, float maxHeight, CompressPixListener listener);
+    void imagePixCompress(String imagePath,String savePath, float maxWidth, float maxHeight, CompressPixListener listener);
 
     /**
      * Lubrn压缩算法的接口

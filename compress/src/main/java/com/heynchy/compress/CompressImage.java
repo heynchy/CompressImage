@@ -28,6 +28,7 @@ import java.io.IOException;
 public class CompressImage implements CompressInterface {
 
     public static CompressImage compressImageUtil;
+
     /**
      * 获取实例
      *
@@ -43,6 +44,7 @@ public class CompressImage implements CompressInterface {
         }
         return compressImageUtil;
     }
+
     /**
      * 质量压缩实现
      *
@@ -75,19 +77,21 @@ public class CompressImage implements CompressInterface {
      * 像素压缩实现
      *
      * @param imagePath
+     * @param savePath
      * @param maxWidth
      * @param maxHeight
      * @param listener
      */
     @Override
-    public void imagePixCompress(String imagePath, float maxWidth, float maxHeight, CompressPixListener listener) {
+    public void imagePixCompress(String imagePath, String savePath, float maxWidth,
+                                 float maxHeight, CompressPixListener listener) {
         File file = new File(imagePath);
         if (file == null || !file.exists() || !file.isFile()) {
             //如果文件不存在，则不做任何处理
             listener.onCompressPixFailed(imagePath, "要压缩的文件不存在");
             return;
         }
-        imagePixelCompress(imagePath, maxWidth, maxHeight, listener);
+        imagePixelCompress(imagePath, savePath, maxWidth, maxHeight, listener);
     }
 
     /**
@@ -133,7 +137,7 @@ public class CompressImage implements CompressInterface {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, options, baos);
 
                 //循环判断如果压缩后图片是否大于指定大小maxSize(单位KB),大于继续压缩
-                while (baos.toByteArray().length / 1024 > 1024) {
+                while (baos.toByteArray().length / 1024 > maxSize) {
                     baos.reset();//重置baos即让下一次的写入覆盖之前的内容
                     options -= 10;//图片质量每次减少10
                     if (options < 0) options = 0;//如果图片质量小于0，则将图片的质量压缩到最小值
@@ -162,7 +166,7 @@ public class CompressImage implements CompressInterface {
      *
      * @param filePath
      */
-    private void imagePixelCompress(final String filePath, float maxWidth, float maxHeight,
+    private void imagePixelCompress(final String filePath, String savePath, float maxWidth, float maxHeight,
                                     final CompressPixListener listener) {
         final Bitmap bitmap = getBitmap(filePath);
         if (bitmap == null) {
@@ -189,8 +193,8 @@ public class CompressImage implements CompressInterface {
         options.inInputShareable = true;                    //当系统内存不够时候图片自动被回收
         Bitmap bitmap1 = BitmapFactory.decodeFile(filePath, options);
         if (bitmap1 != null) {
-            saveBitmap(filePath, bitmap1);
-            listener.onCompressPixSuccessed(filePath, bitmap);
+            saveBitmap(savePath, bitmap1);
+            listener.onCompressPixSuccessed(savePath, bitmap);
         } else {
             listener.onCompressPixFailed(filePath, "压缩失败");
         }

@@ -9,6 +9,13 @@ import android.graphics.Bitmap;
 
 public interface CompressLubanListener {
     /**
+     * luban压缩成功
+     *
+     * @param imgPath 压缩图片的路径
+     */
+    void onCompressLubanSuccessed(String imgPath, Bitmap bitmap);
+
+    /**
      * 压缩失败
      *
      * @param imgPath 压缩失败的图片
@@ -16,10 +23,5 @@ public interface CompressLubanListener {
      */
     void onCompressLubanFailed(String imgPath, String msg);
 
-    /**
-     * luban压缩成功
-     *
-     * @param imgPath 压缩图片的路径
-     */
-    void onCompressLubanSuccessed(String imgPath, Bitmap bitmap);
+
 }

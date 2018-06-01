@@ -19,6 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".MassImageActivity"/>
+        <activity android:name=".PixImageActivity"/>
+        <activity android:name=".LubanImageActivity"/>
     </application>
 
 </manifest>

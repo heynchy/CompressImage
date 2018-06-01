@@ -247,7 +247,7 @@ public class LubanUtil {
             options -= 6;
             bitmap.compress(Bitmap.CompressFormat.JPEG, options, stream);
         }
-        bitmap.recycle();
+//        bitmap.recycle();
         try {
             FileOutputStream fos = new FileOutputStream(filePath);
             fos.write(stream.toByteArray());
