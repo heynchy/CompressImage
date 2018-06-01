@@ -11,3 +11,7 @@
        implementation 'com.github.heynchy:CompressImage:v0.1.1'
    }
 ```
+## 质量压缩
+```java
+
+```
