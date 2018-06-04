@@ -22,6 +22,7 @@ Demo:
 <p>
    <img src="https://github.com/heynchy/CompressImage/blob/master/ScreenShot/3.gif" width="350" alt="Screenshot"/>
 </p> 
+
 ## Usage
 ###  Add dependency
 #### Step 1
