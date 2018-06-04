@@ -39,7 +39,7 @@ Demo:
 然后在添加相关的依赖关系（不是根目录）
 ```groovy
    dependencies {
-       implementation 'com.github.heynchy:CompressImage:v0.1.1'
+       implementation 'com.github.heynchy:CompressImage:v0.1.2'
    }
 ```
 ## 代码中的设置
