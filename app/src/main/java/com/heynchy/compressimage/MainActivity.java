@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+
+
         /*******************************************/
         // 由于Android 6.0之后存储权限需要主动获取，所以在使用该压缩工具之前，要保证你的APP已获取存储权限
         mHasPermission = PermissionUtil.hasStoragePermission(this);
@@ -32,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
             PermissionUtil.getStoragePermissions(this);
         }
         /*********************************************/
+
+
         mMassTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this, "获取权限成功", Toast.LENGTH_SHORT).show();
             } else {
-                
                 Toast.makeText(this, "获取权限失败", Toast.LENGTH_SHORT).show();
             }
         }

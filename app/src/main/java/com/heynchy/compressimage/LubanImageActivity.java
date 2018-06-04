@@ -57,8 +57,8 @@ public class LubanImageActivity extends AppCompatActivity {
         mClickTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO 进行像素压缩
-                final String savePath = Environment.getExternalStorageDirectory() + "/2.1.jpg";
+                // TODO 进行luban算法压缩
+                final String savePath = Environment.getExternalStorageDirectory() + "/2.2.jpg";
                 /**
                  * 参数解析：
                  * filePath: 要压缩图片的绝对路径

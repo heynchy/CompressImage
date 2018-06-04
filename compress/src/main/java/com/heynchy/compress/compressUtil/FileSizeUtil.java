@@ -143,12 +143,7 @@ public class FileSizeUtil {
         } else {
             fileSizeString = df.format((double) fileS / 1073741824) + "GB";
         }
-
-        if (fileS < 1048576 * 2) { // 限制图片大小不能大于2MB
-            return fileSizeString;
-        }
-        return null;
-
+        return fileSizeString;
     }
 
 }
