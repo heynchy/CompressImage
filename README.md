@@ -5,15 +5,19 @@
 #### 基于Luban算法的压缩： 类比微信将图片压缩至不失真的图片大小
 Demo:
 ----
-像素压缩
+###像素压缩：
+
 <p>
    <img src="https://github.com/heynchy/CompressImage/blob/master/ScreenShot/1.gif" width="350" alt="Screenshot"/>
 </p>
-质量压缩
+##质量压缩
+
 <p>
    <img src="https://github.com/heynchy/CompressImage/blob/master/ScreenShot/2.gif" width="350" alt="Screenshot"/>
 </p>
-基于Luban算法的压缩
+
+###基于Luban算法的压缩：
+
 <p>
    <img src="https://github.com/heynchy/CompressImage/blob/master/ScreenShot/3.gif" width="350" alt="Screenshot"/>
 </p> 
