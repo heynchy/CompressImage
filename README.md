@@ -5,7 +5,19 @@
 ### 基于Luban算法的压缩： 类比微信将图片压缩至不失真的图片大小（可缩小图片的大小，但是不会出现失真的现象）
 ## Usage
 ###  Add dependency
-
+## Step 1
+ Add it in your root build.gradle at the end of repositories:
+ 在你的项目的根目录的build.gradle中添加如下信息：
+```groovy
+  	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+## Step 2 
+然后在添加相关的依赖关系（不是根目录）
 ```groovy
    dependencies {
        implementation 'com.github.heynchy:CompressImage:v0.1.1'
