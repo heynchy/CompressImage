@@ -3,6 +3,17 @@
 #### 质量压缩：从质量层面进行相关压缩（原图片可通过该工具压缩至小于期望大小的图片）
 #### 像素压缩：设定固定的长和宽，然后进行压缩
 #### 基于Luban算法的压缩： 类比微信将图片压缩至不失真的图片大小
+Demo:
+----
+<p>
+   <img src="https://github.com/heynchy/CompressImage/blob/master/ScreenShot/1.gif" width="350" alt="Screenshot"/>
+</p>
+<p>
+   <img src="https://github.com/heynchy/CompressImage/blob/master/ScreenShot/2.gif" width="350" alt="Screenshot"/>
+</p>
+<p>
+   <img src="https://github.com/heynchy/CompressImage/blob/master/ScreenShot/3.gif" width="350" alt="Screenshot"/>
+</p> 
 ## Usage
 ###  Add dependency
 #### Step 1
