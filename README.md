@@ -10,6 +10,7 @@ Demo:
 <p>
    <img src="https://github.com/heynchy/CompressImage/blob/master/ScreenShot/1.gif" width="350" alt="Screenshot"/>
 </p>
+
 ### 质量压缩
 
 <p>
