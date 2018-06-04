@@ -1,8 +1,8 @@
 # CompressImage
 ## 集成图片的质量压缩，像素压缩以及基于Luban算法的图片压缩
-### 质量压缩：从质量层面进行相关压缩（原图片可通过该工具压缩至小于期望大小的图片）
-### 像素压缩：设定固定的长和宽，然后进行压缩
-### 基于Luban算法的压缩： 类比微信将图片压缩至不失真的图片大小（可缩小图片的大小，但是不会出现失真的现象）
+#### 质量压缩：从质量层面进行相关压缩（原图片可通过该工具压缩至小于期望大小的图片）
+#### 像素压缩：设定固定的长和宽，然后进行压缩
+#### 基于Luban算法的压缩： 类比微信将图片压缩至不失真的图片大小
 ## Usage
 ###  Add dependency
 #### Step 1
@@ -25,119 +25,116 @@
 ## 代码中的设置
 ### 1. 质量压缩 (注意使用时要确保运行在主线程中，包括处理返回信息时)
 ```java
-          // TODO 进行质量压缩
-                final String savePath = Environment.getExternalStorageDirectory() + "/1.1.jpg";
-                /**
-                 *   确保该方法执行在主线程中
-                 */
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        /**
-                         * 参数解析：
-                         * filePath: 要压缩图片的绝对路径
-                         * savePath: 压缩图片后的保存路径
-                         * maxSize: (例如1024)期望压缩的图片<= maxsize;单位为 KB
-                         */
-                        CompressImage.getInstance().imageMassCompress(filePath, savePath, 1024,
-                                new CompressMassListener() {
-                                    @Override
-                                    public void onCompressMassSuccessed(final String imgPath) {
-                                        // 返回值: imgPath----压缩后图片的绝对路径
-                                        runOnUiThread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                /**
-                                                 * 执行相关的UI操作确保在主线程中进行
-                                                 */
-                                                Bitmap bitmap = PermissionUtil.getLoacalBitmap(imgPath);
-                                                mImagePressIv.setImageBitmap(bitmap);
-                                                mMassPressTv.setText("压缩后质量： " + FileSizeUtil.getFileOrFilesSize(imgPath));
-                                            }
-                                        });
-
-                                    }
-
-                                    @Override
-                                    public void onCompressMassFailed(final String imgPath, final String msg) {
-                                        /**
-                                         * 返回值: imgPath----原图片的绝对路径
-                                         *  msg----返回的错误信息
-                                         */
-                                        runOnUiThread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                /**
-                                                 * 执行相关的UI操作确保在主线程中进行
-                                                 */
-                                                Toast.makeText(MassImageActivity.this, msg, Toast.LENGTH_LONG).show();
-                                            }
-                                        });
-                                    }
-                                });
+   // TODO 进行质量压缩
+   /**
+    *   确保该方法执行在主线程中
+    */
+    runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+           /**
+            * 参数解析：
+            * filePath: 要压缩图片的绝对路径
+            * savePath: 压缩图片后的保存路径
+            * maxSize: (例如1024)期望压缩的图片<= maxsize;单位为 KB
+            */
+            CompressImage.getInstance().imageMassCompress(filePath, savePath, 1024,
+                 new CompressMassListener() {
+                     @Override
+                     public void onCompressMassSuccessed(final String imgPath) {
+                        // 返回值: imgPath----压缩后图片的绝对路径
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                               /**
+                                * 执行相关的UI操作确保在主线程中进行
+                                */
+                                Bitmap bitmap = PermissionUtil.getLoacalBitmap(imgPath);
+                                mImagePressIv.setImageBitmap(bitmap);
+                                mMassPressTv.setText("压缩后质量： " + FileSizeUtil.getFileOrFilesSize(imgPath));
+                            }
+                        });
                     }
-                });
+
+                    @Override
+                    public void onCompressMassFailed(final String imgPath, final String msg) {
+                       /**
+                        * 返回值: imgPath----原图片的绝对路径
+                        *  msg----返回的错误信息
+                        */
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                               /**
+                                * 执行相关的UI操作确保在主线程中进行
+                                */
+                                Toast.makeText(MassImageActivity.this, msg, Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+               });
+           }
+    });
 ```
 ### 2. 像素（尺寸）压缩
 ```java
   // TODO 进行像素压缩
-                final String savePath = Environment.getExternalStorageDirectory() + "/2.1.jpg";
-                /**
-                 * 参数解析：
-                 * filePath: 要压缩图片的绝对路径
-                 * savePath: 压缩图片后的保存路径
-                 * maxWidth: 期望压缩后图片的宽度（像素值）
-                 * maxHeight: 期望压缩后图片的高度（像素值）
-                 */
-                CompressImage.getInstance().imagePixCompress(filePath, savePath, 100, 100,
-                        new CompressPixListener() {
-                            @Override
-                            public void onCompressPixSuccessed(String imgPath, Bitmap bitmap) {
-                                /**
-                                 * 返回值: imgPath----压缩后图片的绝对路径
-                                 *        bitmap----返回的图片
-                                 */
-                                mImagePressIv.setImageBitmap(bitmap);
-                                mMassPressTv.setText("压缩后质量： " + FileSizeUtil.getFileOrFilesSize(imgPath));
-                            }
+  /**
+   * 参数解析：
+   * filePath: 要压缩图片的绝对路径
+   * savePath: 压缩图片后的保存路径
+   * maxWidth: 期望压缩后图片的宽度（像素值）
+   * maxHeight: 期望压缩后图片的高度（像素值）
+   */
+   CompressImage.getInstance().imagePixCompress(filePath, savePath, 100, 100,
+       new CompressPixListener() {
+           @Override
+           public void onCompressPixSuccessed(String imgPath, Bitmap bitmap) {
+              /**
+               * 返回值: imgPath----压缩后图片的绝对路径
+               *        bitmap----返回的图片
+               */
+               mImagePressIv.setImageBitmap(bitmap);
+               mMassPressTv.setText("压缩后质量： " + FileSizeUtil.getFileOrFilesSize(imgPath));
+          }
 
-                            @Override
-                            public void onCompressPixFailed(String imgPath, String msg) {
-                                /**
-                                 * 返回值: imgPath----原图片的绝对路径
-                                 *        msg----返回的错误信息
-                                 */
-                                Toast.makeText(PixImageActivity.this, "压缩失败", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+          @Override
+          public void onCompressPixFailed(String imgPath, String msg) {
+             /**
+              * 返回值: imgPath----原图片的绝对路径
+              *        msg----返回的错误信息
+              */
+              Toast.makeText(PixImageActivity.this, "压缩失败", Toast.LENGTH_SHORT).show();
+          }
+   });
 ```
 ### 3.基于Luban算法的图片压缩（可得到体积小，图片不失真的图片，类比于微信）
 ```java
-final String savePath = Environment.getExternalStorageDirectory() + "/2.1.jpg";
-                /**
-                 * 参数解析：
-                 * filePath: 要压缩图片的绝对路径
-                 * savePath: 压缩图片后的保存路径
-                 */
-                CompressImage.getInstance().imageLubrnCompress(filePath, savePath, new CompressLubanListener() {
-                    @Override
-                    public void onCompressLubanSuccessed(String imgPath, Bitmap bitmap) {
-                        /**
-                         * 返回值: imgPath----压缩后图片的绝对路径
-                         *        bitmap----返回的图片
-                         */
-                        mImagePressIv.setImageBitmap(bitmap);
-                        mMassPressTv.setText("压缩后质量： " + FileSizeUtil.getFileOrFilesSize(imgPath));
-                    }
+   // TODO 进行Luban算法压缩
+   /**
+    * 参数解析：
+    * filePath: 要压缩图片的绝对路径
+    * savePath: 压缩图片后的保存路径
+    */
+    CompressImage.getInstance().imageLubrnCompress(filePath, savePath, new CompressLubanListener() {
+        @Override
+        public void onCompressLubanSuccessed(String imgPath, Bitmap bitmap) {
+            /**
+             * 返回值: imgPath----压缩后图片的绝对路径
+             *        bitmap----返回的图片
+             */
+             mImagePressIv.setImageBitmap(bitmap);
+             mMassPressTv.setText("压缩后质量： " + FileSizeUtil.getFileOrFilesSize(imgPath));
+        }
 
-                    @Override
-                    public void onCompressLubanFailed(String imgPath, String msg) {
-                        /**
-                         * 返回值: imgPath----原图片的绝对路径
-                         *        msg----返回的错误信息
-                         */
-                        Toast.makeText(LubanImageActivity.this, msg, Toast.LENGTH_LONG).show();
-                    }
+        @Override
+        public void onCompressLubanFailed(String imgPath, String msg) {
+            /**
+             * 返回值: imgPath----原图片的绝对路径
+             *        msg----返回的错误信息
+             */
+             Toast.makeText(LubanImageActivity.this, msg, Toast.LENGTH_LONG).show();
+        }
 
-                });
+   });
 ```
