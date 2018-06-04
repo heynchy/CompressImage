@@ -160,7 +160,7 @@ Demo:
    });
 ```
 感谢以下相关项目：
-https://github.com/heynchy/Luban
+https://github.com/Curzibn/Luban
 
 License
 ------
